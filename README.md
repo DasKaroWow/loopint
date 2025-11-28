@@ -210,6 +210,8 @@ Non-mutating subtraction.
 #### `__isub__(other) -> Self`
 In-place subtraction (`-=`).
 
+---
+
 #### `__neg__() -> LoopInt`
 Modular negation:
 
@@ -224,6 +226,8 @@ x = LoopInt(1, right=5)
 y = -x      # → 4
 ```
 
+---
+
 #### `__radd__(other) -> LoopInt`
 Enables: `int + LoopInt`.
 
@@ -232,6 +236,8 @@ Example:
 ```python
 3 + LoopInt(2, right=5)  # → 0
 ```
+
+---
 
 #### `__rsub__(other) -> LoopInt`
 Implements: `other - self` using modular arithmetic.
@@ -246,7 +252,6 @@ Example:
 3 - LoopInt(1, right=5)   # → 2
 0 - LoopInt(1, right=5)   # → 4
 ```
-
 
 ---
 
