@@ -4,8 +4,7 @@
 <p align="center">
     <a href="https://pypi.org/project/loopint/"><img src="https://img.shields.io/pypi/v/loopint" alt="PyPI version"></a>
     <a href="https://pypi.org/project/loopint/"><img src="https://img.shields.io/pypi/pyversions/loopint" alt="Python versions"></a>
-    <a href="https://github.com/DasKaroWow/loopint/actions"><img src="https://img.shields.io/github/actions/workflow/status/DasKaroWow/loopint/tests.yml" alt="Tests"></a>
-    <a href="https://codecov.io/"><img src="https://img.shields.io/codecov/c/github/DasKaroWow/loopint" alt="Coverage"></a>
+    <a href="https://github.com/DasKaroWow/loopint/actions"><img src="https://img.shields.io/github/actions/workflow/status/DasKaroWow/loopint/ci.yml" alt="Tests"></a>
     <a href="https://github.com/DasKaroWow/loopint"><img src="https://img.shields.io/github/license/DasKaroWow/loopint" alt="License"></a>
     <a href="#"><img src="https://img.shields.io/badge/type--hints-100%25-blue" alt="Typing"></a>
     <a href="https://pypistats.org/packages/loopint"><img src="https://img.shields.io/pypi/dm/loopint" alt="Downloads"></a>
