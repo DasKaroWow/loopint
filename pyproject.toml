@@ -1,0 +1,85 @@
+[project]
+name = "loopint"
+version = "1.0"
+description = "A fully typed cyclic integer type for Python with modular arithmetic and fixed [left; right) interval semantics."
+readme = "README.md"
+authors = [
+    { name = "DasKaroWow", email = "daskarowow@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Utilities",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/DasKaroWow/loopint"
+Repository = "https://github.com/DasKaroWow/loopint"
+Issues = "https://github.com/DasKaroWow/loopint/issues"
+Documentation = "https://github.com/DasKaroWow/loopint#readme"
+
+[build-system]
+requires = ["uv_build>=0.9.13,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.34.0",
+    "hypothesis>=6.148.3",
+    "pytest>=8.4.1",
+    "ruff>=0.14.6",
+    "taskipy>=1.14.1",
+]
+
+[tool.ruff]
+indent-width = 4
+respect-gitignore = true
+line-length = 120
+src = ["src"]
+extend-exclude = ["__pycache__"]
+
+[tool.ruff.format]
+docstring-code-format = true
+indent-style = "space"
+line-ending = "native"
+quote-style = "double"
+skip-magic-trailing-comma = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D", "FIX", "RUF", "TD", "COM812", "S101", "ERA001", "PLR2004",
+    "E501", "T201", "S113", "S104", "TC001", "G004", "TC002", "UP047",
+    "EM102", "C901", "FBT002", "FBT003", "TC003", "TC006", "TRY301",
+    "EM101", "TRY003"
+]
+isort.split-on-trailing-comma = false
+
+[tool.basedpyright]
+reportUnannotatedClassAttribute = false
+reportUnknownMemberType = true
+reportAny = false
+reportExplicitAny = false
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.taskipy.tasks]
+clean = "cleaner -u python --delete"
+lint = "ruff check --no-cache ."
+format = "ruff format --no-cache ."
+precommit = "task format && task lint"
+dump = "dumper .py .json .toml .ini -id .venv -id .git -id .github"
