@@ -1,5 +1,7 @@
+# pyright: basic
+
 from enum import Enum
-from typing import Self, Any
+from typing import Self, Any, override
 from dataclasses import dataclass
 from collections.abc import Sequence, Hashable
 
@@ -10,6 +12,7 @@ class ElementSettings:
     meta: Any = None
 
 class EvenBetterEnum(Enum):
+    raise NotImplemented
     _value_: Hashable
     __aliases: frozenset[Hashable] = frozenset()
     __meta: Any = None
@@ -26,6 +29,10 @@ class EvenBetterEnum(Enum):
     @property
     def aliases(self) -> frozenset[Hashable]:
         return self.__aliases
+
+    @override
+    def __eq__(self, value: object, /) -> bool:
+        return any((self.value == value, value in self.aliases))
 
     # def __eq__(self, other):
     #     """Сравнение enum с строкой."""
@@ -47,6 +54,4 @@ class EvenBetterEnum(Enum):
 class Color(EvenBetterEnum):
     RED = ElementSettings("red", [1,2])
 
-
-print(Color.RED.value)
-print(Color("red").value)
+print(Color.RED == "red")
